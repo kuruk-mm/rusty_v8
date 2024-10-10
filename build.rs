@@ -308,6 +308,26 @@ fn build_v8(is_asan: bool) {
     );
   }
 
+  if target_triple != env::var("HOST").unwrap() && target_os == "ios" {
+    maybe_install_sysroot("arm64");
+
+    gn_args.push(r#"v8_target_cpu="arm64""#.to_string());
+    gn_args.push("treat_warnings_as_errors=false".to_string());
+    gn_args.push("ios_deployment_target=\"14\"".to_string());
+    gn_args.push("is_component_build=false".to_string());
+    gn_args.push("is_debug=false".to_string());
+    gn_args.push("target_cpu=\"arm64\"".to_string());
+    gn_args.push("target_os=\"ios\"".to_string());
+    gn_args.push("use_custom_libcxx=false".to_string());
+    gn_args.push("v8_enable_pointer_compression=false".to_string());
+    gn_args.push("v8_monolithic=false".to_string());
+    gn_args.push("v8_use_external_startup_data=false".to_string());
+    gn_args.push("ios_enable_code_signing=false".to_string());
+    gn_args.push("v8_enable_shared_ro_heap=false".to_string());
+    gn_args.push("enable_ios_bitcode=false".to_string());
+    gn_args.push("v8_enable_webassembly=false".to_string());
+  }
+
   if target_triple.starts_with("i686-") {
     gn_args.push(r#"target_cpu="x86""#.to_string());
   }
