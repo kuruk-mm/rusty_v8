@@ -15,12 +15,13 @@ build() # usage build true aarch64-apple-ios
     cp target/${TARGET}/${TARGET_TYPE}/gn_out/src_binding.rs ${OUTDIR}/src_binding_${TARGET_TYPE}_${TARGET}.rs
 }
 
-export MACOSX_DEPLOYMENT_TARGET=14.0
+export MACOSX_DEPLOYMENT_TARGET=16.0
 export CODE_SIGN_IDENTITY="5CDE1493D592FE0C354FA514485904CF76C8221A"
 
 OUTDIR=out/${VERSION}/
 mkdir -p ${OUTDIR}
 
+build false aarch64-apple-ios
 build true aarch64-apple-ios
 #build true aarch64-apple-darwin
 
