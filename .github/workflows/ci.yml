@@ -69,10 +69,10 @@ jobs:
             variant: release
             cargo: cargo
 
-          # - os: ${{ github.repository == 'denoland/rusty_v8' && 'windows-2022-xxl' || 'windows-2022' }}
-          #   target: x86_64-pc-windows-msvc
-          #   variant: release # Note: we do not support windows debug builds.
-          #   cargo: cargo
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'windows-2022-xxl' || 'windows-2022' }}
+            target: x86_64-pc-windows-msvc
+            variant: release # Note: we do not support windows debug builds.
+            cargo: cargo
 
           - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
             target: aarch64-unknown-linux-gnu
@@ -81,6 +81,16 @@ jobs:
 
           - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
             target: aarch64-unknown-linux-gnu
+            variant: release
+            cargo: cargo
+
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
+            target: aarch64-linux-android
+            variant: debug
+            cargo: cargo
+
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
+            target: aarch64-linux-android
             variant: release
             cargo: cargo
 
