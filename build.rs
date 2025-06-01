@@ -327,7 +327,6 @@ fn build_v8(is_asan: bool) {
     gn_args.push("enable_ios_bitcode=false".to_string());
     gn_args.push("v8_enable_webassembly=false".to_string());
     gn_args.push("cppgc_enable_caged_heap=false".to_string());
-
   }
 
   if target_triple.starts_with("i686-") {
