@@ -39,45 +39,50 @@ jobs:
           #   variant: asan
           #   cargo: cargo
 
-          # - os: macos-14
-          #   target: aarch64-apple-darwin
-          #   variant: debug
-          #   cargo: cargo
+          - os: macos-14
+            target: aarch64-apple-darwin
+            variant: debug
+            cargo: cargo
 
-          # - os: macos-14
-          #   target: aarch64-apple-darwin
-          #   variant: release
-          #   cargo: cargo
+          - os: macos-14
+            target: aarch64-apple-darwin
+            variant: release
+            cargo: cargo
 
           - os: macos-14
             target: aarch64-apple-ios
             variant: release
             cargo: cargo
 
-          # - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
-          #   target: x86_64-unknown-linux-gnu
-          #   variant: debug
-          #   cargo: cargo
+          - os: macos-14
+            target: aarch64-apple-ios
+            variant: debug
+            cargo: cargo
 
-          # - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
-          #   target: x86_64-unknown-linux-gnu
-          #   variant: release
-          #   cargo: cargo
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
+            target: x86_64-unknown-linux-gnu
+            variant: debug
+            cargo: cargo
+
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
+            target: x86_64-unknown-linux-gnu
+            variant: release
+            cargo: cargo
 
           # - os: ${{ github.repository == 'denoland/rusty_v8' && 'windows-2022-xxl' || 'windows-2022' }}
           #   target: x86_64-pc-windows-msvc
           #   variant: release # Note: we do not support windows debug builds.
           #   cargo: cargo
 
-          # - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
-          #   target: aarch64-unknown-linux-gnu
-          #   variant: debug
-          #   cargo: cargo
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
+            target: aarch64-unknown-linux-gnu
+            variant: debug
+            cargo: cargo
 
-          # - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
-          #   target: aarch64-unknown-linux-gnu
-          #   variant: release
-          #   cargo: cargo
+          - os: ${{ github.repository == 'denoland/rusty_v8' && 'ubuntu-22.04-xl' || 'ubuntu-22.04' }}
+            target: aarch64-unknown-linux-gnu
+            variant: release
+            cargo: cargo
 
     env:
       V8_FROM_SOURCE: true
